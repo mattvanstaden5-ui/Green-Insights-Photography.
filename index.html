@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Green Insights Photography | Johannesburg</title>
+
+  <style>
+    :root {
+      --green: #244d3c;
+      --dark-green: #153326;
+      --light-green: #f1f6f2;
+      --gold: #b79a5b;
+      --white: #ffffff;
+      --dark: #18221d;
+      --gray: #68716b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7%;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      color: var(--green);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 7% 80px;
+      color: white;
+
+      background:
+        linear-gradient(
+          rgba(15, 39, 28, 0.72),
+          rgba(15, 39, 28, 0.58)
+        ),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      color: #e7d8ad;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.8rem);
+      line-height: 1.02;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 30px;
+      background: var(--gold);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .section-title h2 {
+      color: var(--green);
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+    }
+
+    /* ABOUT */
+
+    .about {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about p {
+      font-size: 1.08rem;
+      color: var(--gray);
+    }
+
+    /* SERVICES */
+
+    .light-section {
+      background: var(--light-green);
+    }
+
+    .cards {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: var(--green);
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: var(--gray);
+    }
+
+    /* PACKAGES */
+
+    .packages {
+      max-width: 900px;
+      margin: 40px auto 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .package {
+      border: 2px solid #e2e9e4;
+      border-radius: 20px;
+      padding: 35px;
+      text-align: center;
+    }
+
+    .package h3 {
+      color: var(--green);
+      font-size: 1.5rem;
+    }
+
+    .price {
+      color: var(--green);
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin: 10px 0;
+    }
+
+    .package p {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 16px;
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: var(--green);
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      color: white;
+    }
+
+    .contact p {
+      margin: 12px 0;
+    }
+
+    .contact a {
+      color: white;
+    }
+
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact .btn {
+      margin-top: 15px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--dark-green);
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      nav {
+        padding: 15px 5%;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      section {
+        padding: 65px 5%;
+      }
+
+      .hero {
+        padding: 110px 5% 70px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+      }
+
+      .cards,
+      .packages,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="logo">
+      GREEN INSIGHTS PHOTOGRAPHY
+    </div>
+
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        Johannesburg • Gauteng
+      </div>
+
+      <h1>
+        Your Moments.<br>
+        Your Memories.<br>
+        Beautifully Captured.
+      </h1>
+
+      <p>
+        Unscripted fun moments, captured naturally —
+        from family gatherings and birthdays to parties
+        and special occasions.
+      </p>
+
+      <a href="#contact" class="btn">
+        Book a Session
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="about">
+
+      <div class="section-title">
+
+        <h2>
+          Capturing the moments that matter
+        </h2>
+
+      </div>
+
+      <br>
+
+      <p>
+        At Green Insights Photography, we believe the best
+        photographs are the moments you don't plan for —
+        the genuine laughs, unexpected smiles, family
+        connections and unforgettable memories.
+      </p>
+
+      <br>
+
+      <p>
+        We capture natural moments so you can enjoy your
+        event while we preserve the memories for you.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+
+  <section id="services" class="light-section">
+
+    <div class="section-title">
+
+      <h2>
+        What We Capture
+      </h2>
+
+      <p>
+        Photography for the moments you'll want to remember.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>🎉 Parties</h3>
+        <p>
+          Natural photos of the energy, people and moments
+          that make your party memorable.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🎂 Birthdays</h3>
+        <p>
+          From the celebrations to the candid laughs,
+          we capture the atmosphere of your special day.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>👨‍👩‍👧‍👦 Family Events</h3>
+        <p>
+          Real family connections and memories you'll
+          want to look back on.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>✨ Special Moments</h3>
+        <p>
+          Photography for the occasions that deserve
+          to be remembered.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PACKAGES -->
+
+  <section id="packages">
+
+    <div class="section-title">
+
+      <h2>
+        Simple Packages
+      </h2>
+
+      <p>
+        Affordable photography for your special moments.
+      </p>
+
+    </div>
+
+
+    <div class="packages">
+
+      <div class="package">
+
+        <h3>
+          35-Minute Session
+        </h3>
+
+        <div class="price">
+          R160
+        </div>
+
+        <p>
+          35 minutes of photography —
+          ideal for smaller gatherings and quick sessions.
+        </p>
+
+        <a href="#contact" class="btn">
+          Book Now
+        </a>
+
+      </div>
+
+
+      <div class="package">
+
+        <h3>
+          2-Hour Event
+        </h3>
+
+        <div class="price">
+          R500
+        </div>
+
+        <p>
+          Up to 2 hours of photography for parties,
+          birthdays and family events.
+        </p>
+
+        <a href="#contact" class="btn">
+          Book Now
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GALLERY -->
+
+  <section id="gallery" class="light-section">
+
+    <div class="section-title">
+
+      <h2>
+        Gallery
+      </h2>
+
+      <p>
+        A glimpse of the moments we love to capture.
+      </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+      <img
+        src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=85"
+        alt="Party celebration"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85"
+        alt="Family event"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=85"
+        alt="Birthday celebration"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=900&q=85"
+        alt="People celebrating"
+      >
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="contact">
+
+    <div class="contact-box">
+
+      <div class="section-title">
+
+        <h2>
+          Let's Capture Your Next Event
+        </h2>
+
+        <p style="color:white;">
+          Get in touch to check availability and book
+          your photography session in Johannesburg.
+        </p>
+
+      </div>
+
+
+      <br>
+
+      <p>
+        <strong>WhatsApp:</strong>
+        <a href="https://wa.me/27690314443">
+          +27 69 031 4443
+        </a>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:mattvanstaden5@gmail.com">
+          mattvanstaden5@gmail.com
+        </a>
+      </p>
+
+      <p>
+        <strong>Alternative Email:</strong>
+        <a href="mailto:sereporeabetswe79@gmail.com">
+          sereporeabetswe79@gmail.com
+        </a>
+      </p>
+
+      <a
+        href="https://wa.me/27690314443"
+        class="btn"
+      >
+        Message on WhatsApp
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 Green Insights Photography
+    <br>
+
+    Johannesburg, Gauteng
+
+    <br><br>
+
+    <em>
+      Unscripted fun moments.
+    </em>
+
+  </footer>
+
+
+</body>
+</html>
